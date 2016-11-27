@@ -1,7 +1,7 @@
 # AdvLibsDisguise Command for MythicMobs 2.1.2 or higher & LibsDisguise 8.6.8 or higher
 
 
-With help of this command you can use the /d ingame disguise command for your MythicMobs! Copy the jar into your plugins folder and restart the server. Now you can start to use the commandskill like this:
+With help of this command you can use the /d ingame disguise command for your MythicMobs! Copy the jar: https://github.com/BerndiVader/mmDisguiseCommand/blob/master/mmDisguiseCommand.jar into your plugins folder and restart the server. Now you can start to use the commandskill like this:
 
 Example 1:
 
