@@ -1,0 +1,8 @@
+name: mmDisguiseCommand
+main: com.gmail.berndivader.mmDisguiseCommand.Main
+version: 0.1
+softdepend: [MythicMobs, LibsDisguise]
+commands:
+  advdisguise:
+      description: advanced MythicMobs LibsDisguise command
+      aliases: [advd]
