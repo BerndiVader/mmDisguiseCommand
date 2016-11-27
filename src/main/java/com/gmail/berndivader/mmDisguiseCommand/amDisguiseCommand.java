@@ -11,13 +11,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 
-import io.lumine.xikage.MythicLib.Adapters.Bukkit.BukkitAdapter;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.DisguiseConfig;
 import me.libraryaddict.disguise.disguisetypes.Disguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.watchers.LivingWatcher;
-import me.libraryaddict.disguise.utilities.BaseDisguiseCommand;
 
 public class amDisguiseCommand extends BaseDisguiseCommand {
 
@@ -27,9 +25,9 @@ public class amDisguiseCommand extends BaseDisguiseCommand {
         Entity e = NMSUtils.getEntity(Bukkit.getWorld(args[1]), UUID.fromString(args[0]));
         if (e==null) return false;
         List<String> tmp = new ArrayList<String>(Arrays.asList(args));
-        tmp.remove(0); tmp.remove(1); args = tmp.toArray(new String[0]);
+        tmp.remove(0); tmp.remove(0); args = tmp.toArray(new String[0]);
         tmp=null;
-        CommandSender cm = (CommandSender)BukkitAdapter.adapt(e);
+        CommandSender cm = (CommandSender)e;
         try {
         	disguise = parseDisguise(cm, args, getPermissions(sender));
        	}
