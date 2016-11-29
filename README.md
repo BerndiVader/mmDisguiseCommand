@@ -30,4 +30,6 @@ FlyingGhost:
 ```
 
 
-Disclaimer: Use the command skill to execute the "advd" or "advdisguise" as command. Followed from the <mob.uuid> and <mob.l.w> mobs world. Now followed by all the options that you also use in the /d ingame disguise command. Enjoy!
+Disclaimer: Use the command skill to execute the "advd" or "advdisguise" as command. Followed by <mob.uuid> and <mob.l.w> for the mobs world. Now use all the options that you also use in the /d ingame disguise command. 
+
+Enjoy!
