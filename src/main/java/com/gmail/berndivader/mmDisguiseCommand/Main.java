@@ -9,9 +9,13 @@ public class Main extends JavaPlugin {
 	public static Plugin getPlugin() {return plugin;}
 	@Override
 	public void onEnable() {
+		
+		plugin = this;
+		
 		if (Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises")!=null 
 				&& Bukkit.getServer().getPluginManager().getPlugin("MythicMobs")!=null) {
 			this.getCommand("advdisguise").setExecutor(new amDisguiseCommand());
+    		this.getServer().getPluginManager().registerEvents(new onMMEvents(), this);
 		}
 	}
 	@Override

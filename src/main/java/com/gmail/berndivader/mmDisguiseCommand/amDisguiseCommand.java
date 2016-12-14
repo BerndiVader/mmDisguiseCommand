@@ -16,13 +16,15 @@ import me.libraryaddict.disguise.DisguiseConfig;
 import me.libraryaddict.disguise.disguisetypes.Disguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.watchers.LivingWatcher;
+import net.elseland.xikage.MythicMobs.MythicMobs;
 
 public class amDisguiseCommand extends BaseDisguiseCommand {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
         Disguise disguise;
-        Entity e = NMSUtils.getEntity(Bukkit.getWorld(args[1]), UUID.fromString(args[0]));
+        
+        Entity e = MythicMobs.plugin.activeMobs.get(UUID.fromString(args[0])).getLivingEntity();
         if (e==null) return false;
         List<String> tmp = new ArrayList<String>(Arrays.asList(args));
         tmp.remove(0); tmp.remove(0); args = tmp.toArray(new String[0]);
