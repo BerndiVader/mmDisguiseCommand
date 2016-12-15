@@ -15,7 +15,7 @@ public class Main extends JavaPlugin {
 		if (Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises")!=null 
 				&& Bukkit.getServer().getPluginManager().getPlugin("MythicMobs")!=null) {
 			this.getCommand("advdisguise").setExecutor(new amDisguiseCommand());
-    		this.getServer().getPluginManager().registerEvents(new onMMEvents(), this);
+//    		this.getServer().getPluginManager().registerEvents(new onMMEvents(), this);
 		}
 	}
 	@Override
