@@ -150,7 +150,8 @@ public abstract class BaseDisguiseCommand implements CommandExecutor
      * @param permissionNode
      * @return
      */
-    protected HashMap<DisguiseType, HashMap<ArrayList<String>, Boolean>> getPermissions(CommandSender sender,
+    @SuppressWarnings("rawtypes")
+	protected HashMap<DisguiseType, HashMap<ArrayList<String>, Boolean>> getPermissions(CommandSender sender,
             String permissionNode)
     {
         HashMap<DisguiseType, HashMap<ArrayList<String>, Boolean>> singleDisguises = new HashMap<>();
@@ -455,7 +456,8 @@ public abstract class BaseDisguiseCommand implements CommandExecutor
      * @throws java.lang.IllegalAccessException
      * @throws java.lang.reflect.InvocationTargetException
      */
-    protected Disguise parseDisguise(CommandSender sender, String[] args,
+    @SuppressWarnings({ "deprecation", "rawtypes", "unchecked" })
+	protected Disguise parseDisguise(CommandSender sender, String[] args,
             HashMap<DisguiseType, HashMap<ArrayList<String>, Boolean>> map)
                     throws DisguiseParseException, IllegalAccessException, InvocationTargetException
     {
@@ -1088,7 +1090,8 @@ public abstract class BaseDisguiseCommand implements CommandExecutor
         return disguise;
     }
 
-    private Entry<Method, Integer> getMethod(Method[] methods, String methodName, int toStart)
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	private Entry<Method, Integer> getMethod(Method[] methods, String methodName, int toStart)
     {
         for (int i = toStart; i < methods.length; i++)
         {
@@ -1156,7 +1159,8 @@ public abstract class BaseDisguiseCommand implements CommandExecutor
                         + receivedInstead + ChatColor.RED + " instead for " + ChatColor.GREEN + methodName);
     }
 
-    private ItemStack parseToItemstack(String string) throws Exception
+    @SuppressWarnings("deprecation")
+	private ItemStack parseToItemstack(String string) throws Exception
     {
         String[] split = string.split(":", -1);
         if (isNumeric(split[0]))

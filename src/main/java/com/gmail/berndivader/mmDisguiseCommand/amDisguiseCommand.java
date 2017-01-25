@@ -11,12 +11,12 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 
+import io.lumine.xikage.mythicmobs.MythicMobs;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.DisguiseConfig;
 import me.libraryaddict.disguise.disguisetypes.Disguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.watchers.LivingWatcher;
-import net.elseland.xikage.MythicMobs.MythicMobs;
 
 public class amDisguiseCommand extends BaseDisguiseCommand {
 
@@ -24,7 +24,7 @@ public class amDisguiseCommand extends BaseDisguiseCommand {
     {
         Disguise disguise;
         
-        Entity e = MythicMobs.plugin.activeMobs.get(UUID.fromString(args[0])).getLivingEntity();
+        Entity e = MythicMobs.inst().getMobManager().getActiveMob(UUID.fromString(args[0])).getLivingEntity();
         if (e==null) return false;
         List<String> tmp = new ArrayList<String>(Arrays.asList(args));
         tmp.remove(0); tmp.remove(0); args = tmp.toArray(new String[0]);
