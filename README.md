@@ -3,8 +3,11 @@
 
 With help of this command you can use the /d ingame disguise command for your MythicMobs! 
 
+
 For 2.5.0 - 2.5.1 https://github.com/BerndiVader/mmDisguiseCommand/blob/master/mmDisguiseCommand251.jar
+
 For 2.6 https://github.com/BerndiVader/mmDisguiseCommand/blob/master/mmDisguiseCommand260.jar
+
 
 Copy the jar into your plugins folder and restart the server. Now you can start to use the commandskill like this:
 
