@@ -25,10 +25,10 @@ public class amDisguiseCommand extends BaseDisguiseCommand {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
         Disguise disguise;
-        if (mmVer >= 260 && mmVer < 2511) {
-        	e = io.lumine.xikage.mythicmobs.MythicMobs.inst().getMobManager().getActiveMob(UUID.fromString(args[0])).getLivingEntity();
-        } else {
+        if (mmVer <= 251) {
         	e = net.elseland.xikage.MythicMobs.MythicMobs.inst().activeMobs.get(UUID.fromString(args[0])).getLivingEntity();
+        } else {
+        	e = io.lumine.xikage.mythicmobs.MythicMobs.inst().getMobManager().getActiveMob(UUID.fromString(args[0])).getLivingEntity();
         }
         if (e==null) return false;
         List<String> tmp = new ArrayList<String>(Arrays.asList(args));
