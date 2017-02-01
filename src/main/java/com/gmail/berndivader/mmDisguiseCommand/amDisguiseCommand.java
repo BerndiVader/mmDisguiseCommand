@@ -11,7 +11,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 
-import io.lumine.xikage.mythicmobs.MythicMobs;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.DisguiseConfig;
 import me.libraryaddict.disguise.disguisetypes.Disguise;
@@ -19,12 +18,18 @@ import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.watchers.LivingWatcher;
 
 public class amDisguiseCommand extends BaseDisguiseCommand {
+	
+	private int mmVer = Main.mmVer;
+	private Entity e = null;
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
         Disguise disguise;
-        
-        Entity e = MythicMobs.inst().getMobManager().getActiveMob(UUID.fromString(args[0])).getLivingEntity();
+        if (mmVer >= 260 && mmVer < 2511) {
+        	e = io.lumine.xikage.mythicmobs.MythicMobs.inst().getMobManager().getActiveMob(UUID.fromString(args[0])).getLivingEntity();
+        } else {
+        	e = net.elseland.xikage.MythicMobs.MythicMobs.inst().activeMobs.get(UUID.fromString(args[0])).getLivingEntity();
+        }
         if (e==null) return false;
         List<String> tmp = new ArrayList<String>(Arrays.asList(args));
         tmp.remove(0); tmp.remove(0); args = tmp.toArray(new String[0]);
@@ -52,7 +57,6 @@ public class amDisguiseCommand extends BaseDisguiseCommand {
         DisguiseAPI.disguiseToAll(e, disguise);
         return true;
     }
-    
     @Override
     protected void sendCommandUsage(CommandSender sender, HashMap<DisguiseType, HashMap<ArrayList<String>, Boolean>> map) {
     	return;
