@@ -16,7 +16,7 @@ public class Main extends JavaPlugin {
 		if (Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises")!=null 
 				&& Bukkit.getServer().getPluginManager().getPlugin("MythicMobs")!=null) {
 			mmVer = Integer.valueOf(Bukkit.getServer().getPluginManager().getPlugin("MythicMobs").getDescription().getVersion().replaceAll("\\.", ""));
-			if (mmVer!=2511) this.getCommand("advdisguise").setExecutor(new amDisguiseCommand());
+			if (mmVer >= 245 && mmVer < 2511) this.getCommand("advdisguise").setExecutor(new amDisguiseCommand());
 		}
 	}
 	@Override

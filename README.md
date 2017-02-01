@@ -1,5 +1,8 @@
 # AdvLibsDisguise Command for MythicMobs 2.4.5 or higher & LibsDisguise 8.6.8 or higher
 
+
+MythicMobs Version 2.5.11 is a little special. You need to use the 2511 Version of the jar!
+
 With help of this command you can use the /d ingame disguise command for your MythicMobs! 
 
 Copy the jar into your plugins folder and restart the server. Now you can start to use the commandskill like this:
