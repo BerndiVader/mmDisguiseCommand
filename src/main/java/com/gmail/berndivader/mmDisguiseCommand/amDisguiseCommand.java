@@ -11,6 +11,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 
+import com.gmail.berndivader.mmDisguiseCommand.VolCode.VolCode;
+
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.DisguiseConfig;
 import me.libraryaddict.disguise.disguisetypes.Disguise;
@@ -19,17 +21,13 @@ import me.libraryaddict.disguise.disguisetypes.watchers.LivingWatcher;
 
 public class amDisguiseCommand extends BaseDisguiseCommand {
 	
-	private int mmVer = Main.mmVer;
 	private Entity e = null;
+	private VolCode NMSUtil = Main.NMSUtil();
 
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
         Disguise disguise;
-        if (mmVer <= 251) {
-        	e = net.elseland.xikage.MythicMobs.MythicMobs.inst().activeMobs.get(UUID.fromString(args[0])).getLivingEntity();
-        } else {
-        	e = io.lumine.xikage.mythicmobs.MythicMobs.inst().getMobManager().getActiveMob(UUID.fromString(args[0])).getLivingEntity();
-        }
+        e = NMSUtil.getEntity(Bukkit.getWorld(args[1]), UUID.fromString(args[0]));
         if (e==null) return false;
         List<String> tmp = new ArrayList<String>(Arrays.asList(args));
         tmp.remove(0); tmp.remove(0); args = tmp.toArray(new String[0]);
