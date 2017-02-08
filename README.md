@@ -32,7 +32,6 @@ Installation: Stop the server and copy the jar into your pluginsfolder. After th
 	   ```
 	   - advdisguise{c="player <trigger.name>"} @MIR{r=30;t=cow} ~onInteract 1
 	   ```
-
 	   Where in c are all the options like in the /d command just without /d and the ability to use the MythicMobs variables and targeters.
 	   
 	 ~ Undisguise Skill usage:
@@ -48,8 +47,8 @@ Installation: Stop the server and copy the jar into your pluginsfolder. After th
 	   ```
        - hasdisguise{disguise=player;condition=true}
 	   ```
-	     disguise or d = Valid LibsDisguise Type or use ANY to remove any disguise.
-		 condition or c = TRUE / FALSE the skill will be casted if the condition meet (true) or meet not (false)
+       disguise or d = Valid LibsDisguise Type or use ANY to remove any disguise.
+	   condition or c = TRUE / FALSE the skill will be casted if the condition meet (true) or meet not (false)
 
 		 
 Skill Example:
