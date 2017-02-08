@@ -9,19 +9,28 @@ import com.gmail.berndivader.mmDisguiseCommand.VolCode.*;
 public class Main extends JavaPlugin {
 	
 	public static int mmVer;
-	private static VolCode NMSUtil;
+	private String strMMVer;
 	private static Plugin plugin;
+	private static VolCode NMSUtil;
+	private static amDisguiseCommand amdisguise;
 	public static Plugin getPlugin() {return plugin;}
 	public static VolCode NMSUtil() {return NMSUtil;}
+	public static amDisguiseCommand getdisuise() {return amdisguise;}
 	
 	@Override
 	public void onEnable() {
 		plugin = this;
 		if (Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises")!=null 
 				&& Bukkit.getServer().getPluginManager().getPlugin("MythicMobs")!=null) {
-        	if (getNMSUtil()) {
-        		this.getCommand("advdisguise").setExecutor(new amDisguiseCommand());
-        	}
+			amdisguise = new amDisguiseCommand();
+	    	strMMVer = Bukkit.getServer().getPluginManager().getPlugin("MythicMobs").getDescription().getVersion();
+			mmVer = Integer.valueOf(strMMVer.replaceAll("\\.", ""));
+			if (getNMSUtil()) {
+				this.getCommand("advdisguise").setExecutor(new amDisguiseCommand());
+				this.getCommand("advundisguise").setExecutor(new amUnDisguiseCommand());
+			}
+			if (mmVer > 259 && mmVer <2511) Bukkit.getServer().getPluginManager().registerEvents(new mmMechanicLoader(), this);
+			if (mmVer == 400) Bukkit.getServer().getPluginManager().registerEvents(new mmConditionsLoader(), this);
 		}
 	}
 	@Override

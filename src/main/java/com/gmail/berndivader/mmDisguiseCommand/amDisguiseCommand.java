@@ -23,7 +23,7 @@ public class amDisguiseCommand extends BaseDisguiseCommand {
 	
 	private Entity e = null;
 	private VolCode NMSUtil = Main.NMSUtil();
-
+	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
         Disguise disguise;
@@ -38,11 +38,11 @@ public class amDisguiseCommand extends BaseDisguiseCommand {
        	}
         catch (DisguiseParseException ex) {
         	if (ex.getMessage() != null) {Bukkit.getServer().getLogger().warning(ex.getMessage());}
-        	return true;
+        	return false;
         }
         catch (Exception ex) {
             ex.printStackTrace();
-            return true;
+            return false;
         }
         if (DisguiseConfig.isNameOfPlayerShownAboveDisguise()) {
             if (disguise.getWatcher() instanceof LivingWatcher) {
@@ -58,5 +58,33 @@ public class amDisguiseCommand extends BaseDisguiseCommand {
     @Override
     protected void sendCommandUsage(CommandSender sender, HashMap<DisguiseType, HashMap<ArrayList<String>, Boolean>> map) {
     	return;
+    }
+
+    public boolean dodisguise(Entity e, String cmd)
+    {
+    	String[] args = cmd.split(" ");
+    	if (args==null) return false;
+        Disguise disguise;
+        try {
+        	disguise = parseDisguise((CommandSender)e, args, getPermissions(Bukkit.getConsoleSender()));
+       	}
+        catch (DisguiseParseException ex) {
+        	if (ex.getMessage() != null) {Bukkit.getServer().getLogger().warning(ex.getMessage());}
+        	return false;
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+        if (DisguiseConfig.isNameOfPlayerShownAboveDisguise()) {
+            if (disguise.getWatcher() instanceof LivingWatcher) {
+                disguise.getWatcher().setCustomName(e.getCustomName());
+                if (DisguiseConfig.isNameAboveHeadAlwaysVisible()) {
+                    disguise.getWatcher().setCustomNameVisible(true);
+                }
+            }
+        }
+        DisguiseAPI.disguiseToAll(e, disguise);
+        return true;
     }
 }
