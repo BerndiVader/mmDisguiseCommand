@@ -19,7 +19,9 @@ Installation: Stop the server and copy the jar into your pluginsfolder. After th
 	   
    * Undisguise command:
      ~ Use this command to undisguise the mob again.
+	 ``` 
 	 - command{cmd="advdun <mob.uuid> <mob.l.w>"}
+	 ```
 	   
 	   
 # MythicMobs Versions 2.6.0 - 4.0.0:
@@ -27,21 +29,25 @@ Installation: Stop the server and copy the jar into your pluginsfolder. After th
    * Use AdvLibsDisguise as skills:
    
      ~ Disguise Skill usage:
+	   ```
 	   - advdisguise{c="player <trigger.name>"} @MIR{r=30;t=cow} ~onInteract 1
+	   ```
 
 	   Where in c are all the options like in the /d command just without /d and the ability to use the MythicMobs variables and targeters.
 	   
 	 ~ Undisguise Skill usage:
+	   ```
 	   - advundisguise @self ~onDamaged 1
-	   
+       ```   
 	   This undisguise the mob when its damaged and if it was disguised.
 	   
 	   
    * Use AdvLibsDisguise Conditions (only for MythicMobs 4.0.0):
    
      ~ hasdisguise skill condition usage:
+	   ```
        - hasdisguise{disguise=player;condition=true}
-	   
+	   ```
 	     disguise or d = Valid LibsDisguise Type or use ANY to remove any disguise.
 		 condition or c = TRUE / FALSE the skill will be casted if the condition meet (true) or meet not (false)
 
