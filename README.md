@@ -24,7 +24,7 @@ Installation: Stop the server and copy the jar into your pluginsfolder. After th
 	 ```
 	   
 	   
-# MythicMobs Versions 2.6.0 - 4.0.0:
+# MythicMobs Versions 4.0.0 Build 1941:
 
    * Use AdvLibsDisguise as skills:
    
