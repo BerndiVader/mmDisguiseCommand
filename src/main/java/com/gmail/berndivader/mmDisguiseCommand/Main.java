@@ -23,8 +23,8 @@ public class Main extends JavaPlugin {
 		if (Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises")!=null 
 				&& Bukkit.getServer().getPluginManager().getPlugin("MythicMobs")!=null) {
 			amdisguise = new amDisguiseCommand();
-	    	strMMVer = Bukkit.getServer().getPluginManager().getPlugin("MythicMobs").getDescription().getVersion();
-			mmVer = Integer.valueOf(strMMVer.replaceAll("\\.", ""));
+	    	strMMVer = Bukkit.getServer().getPluginManager().getPlugin("MythicMobs").getDescription().getVersion().replaceAll("[\\D]", "");
+			mmVer = Integer.valueOf(strMMVer);
 			if (getNMSUtil()) {
 				this.getCommand("advdisguise").setExecutor(new amDisguiseCommand());
 				this.getCommand("advundisguise").setExecutor(new amUnDisguiseCommand());
