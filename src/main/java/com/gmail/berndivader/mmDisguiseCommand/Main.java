@@ -30,7 +30,7 @@ public class Main extends JavaPlugin {
 				this.getCommand("advundisguise").setExecutor(new amUnDisguiseCommand());
 			}
 			if (mmVer > 259 && mmVer <2511) Bukkit.getServer().getPluginManager().registerEvents(new mmMechanicLoader(), this);
-			if (mmVer == 400) Bukkit.getServer().getPluginManager().registerEvents(new mmConditionsLoader(), this);
+			if (mmVer >= 400 && mmVer <2511) Bukkit.getServer().getPluginManager().registerEvents(new mmConditionsLoader(), this);
 		}
 	}
 	@Override
