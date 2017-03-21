@@ -1,5 +1,7 @@
 # AdvLibsDisguise for MythicMobs 2.4.5 or higher & LibsDisguise 8.6.8 or higher
 
+## Update 21.3.2017 - Gone up to 9.2 LibsDisguise. Now supports templates ie saved skins. Enjoy! For this you need atleast Spigot 1.10.2 and Disguise 9.1.2
+
 Installation: Stop the server and copy the jar into your pluginsfolder. After this restart your server and you can use all the commands and skills like with "/d" command of LibsDisguise.
 
 
@@ -24,7 +26,7 @@ Installation: Stop the server and copy the jar into your pluginsfolder. After th
 	 ```
 	   
 	   
-# MythicMobs Versions 4.0.0 Build 1941:
+# MythicMobs Versions 4.0.0 or higher
 
    * Use AdvLibsDisguise as skills:
    

@@ -28,6 +28,8 @@ import com.comphenix.protocol.wrappers.WrappedGameProfile;
 import com.comphenix.protocol.wrappers.WrappedSignedProperty;
 import com.google.gson.Gson;
 
+import io.lumine.xikage.mythicmobs.MythicMobs;
+import me.libraryaddict.disguise.DisguiseConfig;
 import me.libraryaddict.disguise.disguisetypes.AnimalColor;
 import me.libraryaddict.disguise.disguisetypes.Disguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
@@ -500,6 +502,14 @@ public abstract class BaseDisguiseCommand implements CommandExecutor
         {
             DisguiseType disguiseType = null;
 
+            if (MythicMobs.inst().getMinecraftVersion()>=10) {
+                Entry<String, Disguise> customDisguise = DisguiseConfig.getCustomDisguise(args[0]);
+                if (customDisguise != null) {
+                	disguise = customDisguise.getValue().clone();
+                }
+            }
+            if (disguise==null) {
+
             if (args[0].equalsIgnoreCase("p"))
             {
                 disguiseType = DisguiseType.PLAYER;
@@ -630,8 +640,8 @@ public abstract class BaseDisguiseCommand implements CommandExecutor
                             case DROPPED_ITEM:
                             case FISHING_HOOK:
                             case ARROW:
-//                            case TIPPED_ARROW:
-//                            case SPECTRAL_ARROW:
+                            case TIPPED_ARROW:
+                            case SPECTRAL_ARROW:
                             case SMALL_FIREBALL:
                             case FIREBALL:
                             case WITHER_SKULL:
@@ -703,7 +713,7 @@ public abstract class BaseDisguiseCommand implements CommandExecutor
                     // Construct the disguise
                     disguise = new MiscDisguise(disguiseType, miscId, miscData);
                 }
-            }
+            }}
         }
         // Copy strings to their new range
         String[] newArgs = new String[args.length - toSkip];
@@ -1075,7 +1085,7 @@ public abstract class BaseDisguiseCommand implements CommandExecutor
                 usedOptions.add(methodName.toLowerCase());
             }
 
-            doCheck(optionPermissions, usedOptions);
+            //doCheck(optionPermissions, usedOptions);
 
             if (FlagWatcher.class.isAssignableFrom(methodToUse.getDeclaringClass()))
             {
